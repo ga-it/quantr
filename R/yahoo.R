@@ -33,6 +33,7 @@ yahoo_summary <- function(symbols, modules = c("defaultKeyStatistics", "financia
 }
 
 yahoo_financials_simple <- function(symbol, reporting, verbose = FALSE) {
+  print(symbol)
   modules <- ifelse(
     reporting == "annual",
     "incomeStatementHistory,balanceSheetHistory,cashflowStatementHistory",

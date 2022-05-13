@@ -56,13 +56,13 @@ yahoo_financials_simple <- function(symbol, reporting, verbose = FALSE) {
     select(-contains(".fmt"), -contains(".longFmt")) %>%
     mutate(endDate.raw = as.POSIXct(endDate.raw, origin = "1970-01-01"))
   colnames(df) <- gsub(".raw", "", colnames(df))
-  if ("capitalExpenditures" %in% names(df)) {
-    df <- df %>%
-      mutate(freeCashflow = totalCashFromOperatingActivities + capitalExpenditures)
-  } else {
-    df <- df %>%
-      mutate(freeCashflow = totalCashFromOperatingActivities)
-  }
+#  if ("capitalExpenditures" %in% names(df)) {
+#    df <- df %>%
+#      mutate(freeCashflow = totalCashFromOperatingActivities + capitalExpenditures)
+#  } else {
+#    df <- df %>%
+#      mutate(freeCashflow = totalCashFromOperatingActivities)
+#  }
   df$symbol <- symbol
   return(as_tibble(df))
 }

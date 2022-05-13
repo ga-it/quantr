@@ -27,7 +27,7 @@ yahoo_summary_simple <- function(symbol, modules, verbose = FALSE) {
 #' @export
 #' @examples
 #' yahoo_summary(c("AAPL", "MSFT"))
-yahoo_summary <- function(symbols, modules = c("defaultKeyStatistics", "financialData", "price", "quoteType", "summaryDetail"), verbose = FALSE) {
+yahoo_summary <- function(symbols, modules = c("defaultKeyStatistics", "financialData", "price", "quoteType", "summaryDetail", "assetProfile", "summaryProfile"), verbose = FALSE) {
   rows <- purrr::map(.x = symbols, .f = ~yahoo_summary_simple(.x, modules, verbose))
   return(bind_rows(rows))
 }
